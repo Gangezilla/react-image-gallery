@@ -162,7 +162,15 @@ class App extends React.Component {
             <a onClick={this._toggleShowVideo.bind(this, item.embedUrl)}>
               <div className='play-button'></div>
               <img src={item.original}/>
-              
+              {
+                item.description &&
+                  <span
+                    className='image-gallery-description'
+                    style={{right: '0', left: 'initial'}}
+                  >
+                    {item.description}
+                  </span>
+              }
             </a>
         }
       </div>
