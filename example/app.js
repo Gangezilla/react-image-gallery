@@ -23,6 +23,7 @@ class App extends React.Component {
       slideDuration: 450,
       slideInterval: 2000,
       thumbnailPosition: 'bottom',
+      disableDescriptionTransform: true,
       showVideo: {},
     };
 
@@ -161,15 +162,7 @@ class App extends React.Component {
             <a onClick={this._toggleShowVideo.bind(this, item.embedUrl)}>
               <div className='play-button'></div>
               <img src={item.original}/>
-              {
-                item.description &&
-                  <span
-                    className='image-gallery-description'
-                    style={{right: '0', left: 'initial'}}
-                  >
-                    {item.description}
-                  </span>
-              }
+              
             </a>
         }
       </div>
@@ -201,6 +194,7 @@ class App extends React.Component {
           slideDuration={parseInt(this.state.slideDuration)}
           slideInterval={parseInt(this.state.slideInterval)}
           slideOnThumbnailHover={this.state.slideOnThumbnailHover}
+          disableDescriptionTransform={this.state.disableDescriptionTransform}
         />
 
         <div className='app-sandbox'>
@@ -312,6 +306,14 @@ class App extends React.Component {
                   onChange={this._handleCheckboxChange.bind(this, 'slideOnThumbnailHover')}
                   checked={this.state.slideOnThumbnailHover}/>
                   <label htmlFor='slide_on_thumbnail_hover'>slide on thumbnail hover (desktop)</label>
+              </li>
+              <li>
+                <input
+                  id='disable_description_transform'
+                  type='checkbox'
+                  onChange={this._handleCheckboxChange.bind(this, 'disableDescriptionTransform')}
+                  checked={this.state.disableDescriptionTransform}/>
+                  <label htmlFor='disable_description_transform'>disable description transform</label>
               </li>
             </ul>
           </div>

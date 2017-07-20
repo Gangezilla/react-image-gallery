@@ -51,6 +51,23 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   }
 }
 
+.image-gallery-description {
+  background: $ig-background-black;
+  bottom: 70px;
+  color: $ig-white;
+  left: 0;
+  line-height: 1;
+  padding: 10px 20px;
+  position: absolute;
+  white-space: normal;
+
+  @media (max-width: $ig-screen-sm-min) {
+    bottom: 45px;
+    font-size: .8em;
+    padding: 8px 15px;
+  }
+}
+
 .image-gallery-slide-wrapper {
   position: relative;
 
@@ -213,24 +230,6 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
   img {
     width: 100%;
-  }
-
-  .image-gallery-description {
-    background: $ig-background-black;
-    bottom: 70px;
-    color: $ig-white;
-    left: 0;
-    line-height: 1;
-    padding: 10px 20px;
-    position: absolute;
-    white-space: normal;
-
-    @media (max-width: $ig-screen-sm-min) {
-      bottom: 45px;
-      font-size: .8em;
-      padding: 8px 15px;
-    }
-
   }
 }
 

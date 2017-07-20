@@ -46,6 +46,7 @@ export default class ImageGallery extends React.Component {
     disableThumbnailScroll: PropTypes.bool,
     disableArrowKeys: PropTypes.bool,
     disableSwipe: PropTypes.bool,
+    disableDescriptionTransform: PropTypes.bool,
     useBrowserFullscreen: PropTypes.bool,
     defaultImage: PropTypes.string,
     indexSeparator: PropTypes.string,
@@ -89,6 +90,7 @@ export default class ImageGallery extends React.Component {
     disableThumbnailScroll: false,
     disableArrowKeys: false,
     disableSwipe: false,
+    disableDescriptionTransform: false,
     useBrowserFullscreen: true,
     indexSeparator: ' / ',
     thumbnailPosition: 'bottom',
@@ -812,7 +814,7 @@ export default class ImageGallery extends React.Component {
             onError={onImageError.bind(this)}
         />
         {
-          item.description &&
+          !this.props.disableDescriptionTransform && item.description &&
             <span className='image-gallery-description'>
               {item.description}
             </span>
@@ -881,6 +883,7 @@ export default class ImageGallery extends React.Component {
       }
 
       let slideStyle = this._getSlideStyle(index);
+      console.log(this._getSlideStyle(index), 'zzz', this.state.style);
       const slide = (
         <div
           key={index}
@@ -1027,6 +1030,12 @@ export default class ImageGallery extends React.Component {
                 {this.props.items.length}
               </span>
             </div>
+        }
+        {
+          this.props.disableDescriptionTransform && this.props.items[this.state.currentIndex].description &&
+            <span className='image-gallery-description' style={Object.assign(this._getSlideStyle(this.state.currentIndex), this.state.style)}>
+              {this.props.items[this.state.currentIndex].description}
+            </span>
         }
       </div>
     );

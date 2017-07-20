@@ -111,6 +111,8 @@ class MyComponent extends React.Component {
 * `showBullets`: Boolean, default `false`
 * `showIndex`: Boolean, default `false`
 * `autoPlay`: Boolean, default `false`
+* `disableDescriptionTransform`: Boolean, default `false`
+  * disables the description from moving with the slide.
 * `disableThumbnailScroll`: Boolean, default `false`
   * disables the thumbnail container from adjusting
 * `slideOnThumbnailHover`: Boolean, default `false`
